@@ -4,8 +4,18 @@ const {
     arrayBoleanos,
     arrayDeArray,
     arrayCombinado,
-    metodoFilter,
-    metodoMap
+    metodoMapear,
+    metodoFiltrar,
+    metodoAgregar,
+    metodoAgregarF,
+    metodoEncontrar,
+    metodoEliminarF,
+    metodoEliminarP,
+    metodoOrdenarA,
+    metodoOrdenar_Mam,
+    metodoOrdenar_maM,
+    metodoTextoUnir,
+    metodoUnirArray
 } = require('./arrays.js');
 
 
@@ -97,9 +107,44 @@ it("(arrayCombinado) El elemento del indice 2 debe de ser un booleano", () => {
 });
 
 
-it("(metodoMap) sumarle 2 a cada elemento del array que se te pasó como parametro", () => {
-    expect(metodoMap([6, 7, 8, 9, 10, 11, 12])).toEqual([8, 9, 10, 11, 12, 13, 14])
+it("(metodoMapear) sumarle 2 a cada elemento del array que se te pasó como parametro", () => {
+    expect(metodoMapear([6, 7, 8, 9, 10, 11, 12])).toEqual([8, 9, 10, 11, 12, 13, 14])
 })
-it("(metodoFilter) filtrar solo los elementos que sean banana, orange, lemon", () => {
-    expect(metodoFilter(["melon", "banana", "orange", "lemon", "aple"])).toEqual(["banana", "orange", "lemon"])
+it("(metodoFiltrar) filtrar solo los elementos que sean banana, orange, lemon", () => {
+    expect(metodoFiltrar(["melon", "banana", "orange", "lemon", "aple"])).toEqual([ "banana","orange", "lemon"])
+})
+
+it("(metodoAgregar) Agrega el numero 50 al final del array utilizando algun método", () => {
+    expect(metodoAgregar([6])).toEqual([6, 50])
+})
+it("(metodoAgregarF) Agrega el numero 50 al principio del array utilizando algun método", () => {
+    expect(metodoAgregarF([6,])).toEqual([50, 6])
+})
+
+it("(metodoEncontrar) Encuentra el numero 34 y devuelvelo utilizando algun método", () => {
+    expect(metodoEncontrar([6, 7, 8, 9, 34, 11])).toBe(34)
+})
+it("(metodoEliminarF) Elimina el último elemento del array que se te paso y devuelve el valor eliminado", () => {
+    expect(metodoEliminarF([5,8,9])).toBe(9)
+})
+
+it("(metodoEliminarP) Elimina el primer elemento del array y devuelve el valor", () => {
+    expect(metodoEliminarP([6, 7, 8, 9, 10, 11, 12])).toBe(6)
+})
+it("(metodoOrdenarA) Ordene los elementos alfabeticamente", () => {
+    expect(metodoOrdenarA(["melon", "banana", "orange", "lemon", "aple"])).toEqual(["aple","banana", "lemon", "melon", "orange"])
+})
+
+it("(metodoOrdenar_Mam) Oredene los elementos numericos del mayor a menor", () => {
+    expect(metodoOrdenar_Mam([7, 9, 10, 11, 12, 6, 8])).toEqual([12, 11, 10, 9, 8, 7, 6])
+})
+it("(metodoOrdenar_maM) Oredene los elementos numericos del menor a mayor", () => {
+    expect(metodoOrdenar_maM([7, 9, 10, 11, 12, 6, 8])).toEqual([6, 7, 8, 9, 10, 11, 12])
+})
+
+it("(metodoTextoUnir) Una los elementos del array convirtiendolos en un string, cada elemento debe estar dividido por un gion '-'", () => {
+    expect(metodoTextoUnir(["melon", "banana", "orange", "lemon", "aple"])).toEqual("melon-banana-orange-lemon-aple")
+})
+it("(metodoUnirArray) Una los dos array que se te pasan por parametros y entrega un array nuevo", () => {
+    expect(metodoUnirArray(["melon", "banana", "orange", "lemon", "aple"], [7, 9, 10, 11, 12, 6, 8])).toEqual(["melon", "banana", "orange", "lemon", "aple",7, 9, 10, 11, 12, 6, 8])
 })
